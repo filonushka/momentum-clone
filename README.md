@@ -1,6 +1,6 @@
 # momentum-clone  
 
-- [Deploy]()  
+- [Deploy](https://filonushka.github.io/momentum-clone/)  
 - Tech Stack:
   - HTML
   - CSS
