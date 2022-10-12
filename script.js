@@ -3,6 +3,9 @@ const date = document.querySelector(".date");
 const greeting = document.querySelector(".greeting");
 const name = document.querySelector(".name");
 
+window.addEventListener("beforeunload", setLocalStorage);
+window.addEventListener("load", getLocalStorage);
+
 function showTime() {
   const date = new Date();
   const currentTime = date.toLocaleTimeString();
@@ -48,5 +51,19 @@ function getLocalStorage() {
   }
 }
 
-window.addEventListener("beforeunload", setLocalStorage);
-window.addEventListener("load", getLocalStorage);
+function getRandomNum(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+const randomNum = getRandomNum(1, 24);
+// console.log(randomNum);
+
+function setBg() {
+  const timeOfDay = Math.floor(new Date().getHours());
+  const bgNum = randomNum.toString().padStart(2, "0");
+  console.log(timeOfDay, bgNum);
+}
+
+setBg();
