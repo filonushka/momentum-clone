@@ -5,6 +5,9 @@ const name = document.querySelector(".name");
 const slideNextBtn = document.querySelector(".slide-next");
 const slidePrevBtn = document.querySelector(".slide-prev");
 
+let randomNum = getRandomNum(1, 7);
+console.log("0", randomNum);
+
 window.addEventListener("beforeunload", setLocalStorage);
 window.addEventListener("load", getLocalStorage);
 function showTime() {
@@ -12,11 +15,11 @@ function showTime() {
   const currentTime = date.toLocaleTimeString();
   time.textContent = currentTime;
   showDate();
-  showGreeting();
   setTimeout(showTime, 1000);
 }
 showTime();
 
+showGreeting();
 function showDate() {
   const newDate = new Date();
   const options = {
@@ -31,7 +34,11 @@ function showGreeting() {
   const date = new Date();
   const hours = date.getHours();
 
-  function gerTimeOfDay() {
+  const timeOfDay = getTimeOfDay();
+  const greetingText = `Good ${timeOfDay}`;
+  greeting.textContent = greetingText + ", ";
+
+  function getTimeOfDay() {
     const arr = ["morning", "afternoon", "evening", "night"];
     const num = Math.floor(hours / 6);
     if (num == "0") {
@@ -41,28 +48,37 @@ function showGreeting() {
     }
   }
 
-  const timeOfDay = gerTimeOfDay();
-  const greetingText = `Good ${timeOfDay}`;
-  greeting.textContent = greetingText + ", ";
-
-  // console.log(timeOfDay);
-
   function setBg() {
-    //  до 6 или до 7???
-    const randomNum = getRandomNum(1, 6);
     const bgNum = randomNum.toString().padStart(2, "0");
+    const timeOfDay = getTimeOfDay();
     document.body.style.backgroundImage = `url("./assets/images/${timeOfDay}/${bgNum}.jpg")`;
     // console.log(randomNum, timeOfDay, bgNum);
   }
 
   slideNextBtn.addEventListener("click", getSlideNext);
   slidePrevBtn.addEventListener("click", getSlidePrev);
+  function getSlideNext() {
+    if (randomNum < 7) {
+      setBg();
+      randomNum = randomNum + 1;
+      // console.log("<7", randomNum);
+    } else {
+      randomNum = randomNum - 6;
+      setBg();
+      // console.log("=7", randomNum);
+    }
+  }
 
   function getSlidePrev() {
-    setBg();
-  }
-  function getSlideNext() {
-    setBg();
+    if (randomNum > 1) {
+      randomNum = randomNum - 1;
+      setBg();
+      // console.log(">1", randomNum);
+    } else {
+      setBg();
+      randomNum = randomNum + 6;
+      // console.log("=1", randomNum);
+    }
   }
 }
 
