@@ -15,6 +15,7 @@
     <title>Momentum clone</title>
     <script src="./script.js" type="module"></script>
   </head>
+
   <body>
     <header class="header">
       <div class="player">
@@ -26,8 +27,8 @@
         <ul class="play-list"></ul>
       </div>
       <div class="weather">
-        <input type="text" class="city" />
-        <i class="weather-icon"></i>
+        <input type="text" class="city" placeholder="City" />
+        <img class="weather-icon owf" />
         <div class="weather-error"></div>
         <div class="description-container">
           <span class="temperature"></span>
@@ -37,18 +38,22 @@
         <div class="humidity"></div>
       </div>
     </header>
+
     <main class="main">
       <div class="slider-icons">
         <button class="slide-prev slider-icon"></button>
         <button class="slide-next slider-icon"></button>
       </div>
-      <time class="time"></time>
+
+      <time class="time">00:00:00 AM</time>
       <date class="date">October, 29</date>
+
       <div class="greeting-container">
         <span class="greeting">Hello, </span>
-        <input type="text" class="name" placeholder="your name" />
+        <div class="name empty" contenteditable></div>
       </div>
     </main>
+
     <footer class="footer">
       <button class="change-quote__button"></button>
       <div class="quote">

@@ -8,6 +8,7 @@ body {
   min-width: 480px;
   min-height: 100vh;
   font-family: "Montserrat", sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: 16px;
   color: #fff;
   text-align: center;
@@ -203,7 +204,7 @@ body {
 .greeting-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: stretch;
+  justify-content: center;
   align-items: center;
   min-height: 48px;
   width: 100vw;
@@ -211,14 +212,12 @@ body {
 }
 
 .greeting {
-  flex: 1;
   padding: 10px;
   text-align: right;
 }
 
 .name {
-  flex: 1;
-  max-width: 50%;
+  /* max-width: 50%; */
   padding: 10px;
   font-size: 40px;
   font-family: "Montserrat", sans-serif;
@@ -229,7 +228,7 @@ body {
   outline: 0;
 }
 
-.name::placeholder {
+.name.empty {
   color: #fff;
   opacity: 0.6;
   font-size: 40px;
