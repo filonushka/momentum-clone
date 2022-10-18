@@ -8,15 +8,19 @@ const weatherIcon = document.querySelector(".weather-icon");
 const temperature = document.querySelector(".temperature");
 const weatherDescription = document.querySelector(".weather-description");
 const cityInput = document.querySelector(".city");
+const quote = document.querySelector(".quote");
+const quoteAuthor = document.querySelector(".quote-author");
+const changeQuoteBtn = document.querySelector(".change-quote__button");
 
 let bgIndex = getRandomNum(1, 7);
-console.log("0", bgIndex);
+let quoteIndex = getRandomNum(0, 102);
 
 cityInput.addEventListener("change", storeUserData);
 nameDiv.addEventListener("change", storeUserData);
 nameDiv.addEventListener("focus", handleNameFocus);
 nameDiv.addEventListener("blur", handleNameBlur);
 nameDiv.addEventListener("keydown", handleNameEnter);
+changeQuoteBtn.addEventListener("click", changeQuote);
 
 restoreUserData();
 handleNameBlur();
@@ -149,3 +153,20 @@ function handleNameEnter(e) {
 
 document.addEventListener("DOMContentLoaded", updateWeather);
 cityInput.addEventListener("keydown", handleCityChange);
+
+async function showQuotes() {
+  const quotes = `data-quotes.json`;
+  const res = await fetch(quotes);
+  const data = await res.json();
+
+  quote.textContent = `"${data[quoteIndex].quote}"`;
+  quoteAuthor.textContent = data[quoteIndex].author;
+}
+
+showQuotes();
+
+function changeQuote() {
+  console.log("change quote");
+}
+
+changeQuote();
