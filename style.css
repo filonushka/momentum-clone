@@ -180,12 +180,12 @@ body {
 
 .slide-prev {
   left: 20px;
-  background-image: url("../assets/svg/slider-prev.svg");
+  background-image: url("./assets/svg/slider-prev.svg");
 }
 
 .slide-next {
   right: 20px;
-  background-image: url("../assets/svg/slider-next.svg");
+  background-image: url("./assets/svg/slider-next.svg");
 }
 
 .time {
