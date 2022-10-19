@@ -11,8 +11,11 @@ const cityInput = document.querySelector(".city");
 const quote = document.querySelector(".quote");
 const quoteAuthor = document.querySelector(".quote-author");
 const changeQuoteBtn = document.querySelector(".change-quote__button");
-
+const playBtn = document.querySelector(".play");
 let bgIndex = getRandomNum(1, 7);
+
+import playList from "./assets/audio/playList";
+console.log(playList);
 
 slideNextBtn.addEventListener("click", showNextSlide);
 slidePrevBtn.addEventListener("click", showPrevSlide);
@@ -31,12 +34,12 @@ handleNameBlur();
 setInterval(update, 100);
 setBg();
 showQuotes();
+updateWeather();
 
 function update() {
   showTime();
   showDate();
   showGreeting();
-  updateWeather();
 }
 
 function showTime() {
@@ -158,12 +161,16 @@ async function showQuotes() {
   const data = await res.json();
 
   let quoteIndex = getRandomNum(0, 102);
-  console.log(quoteIndex);
   quote.textContent = `"${data[quoteIndex].quote}"`;
   quoteAuthor.textContent = data[quoteIndex].author;
 }
 
 function changeQuote() {
-  console.log("change quote");
   showQuotes();
 }
+
+function togglePLayBtn() {
+  playBtn.classList.toggle("pause");
+}
+
+playBtn.addEventListener("click", togglePLayBtn);
