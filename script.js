@@ -14,9 +14,6 @@ const changeQuoteBtn = document.querySelector(".change-quote__button");
 const playBtn = document.querySelector(".play");
 let bgIndex = getRandomNum(1, 7);
 
-import playList from "./assets/audio/playList";
-console.log(playList);
-
 slideNextBtn.addEventListener("click", showNextSlide);
 slidePrevBtn.addEventListener("click", showPrevSlide);
 cityInput.addEventListener("change", storeUserData);
