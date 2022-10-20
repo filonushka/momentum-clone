@@ -31,9 +31,14 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 120px;
-  margin-bottom: 28px;
+  margin: 10px auto;
 }
 
+.audio-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .play-list {
   text-align: left;
 }
