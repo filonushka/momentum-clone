@@ -1,4 +1,4 @@
-const playList = [
+export const trackList = [
   {
     author: "Chaka Knan",
     song: "Like Sugar",
@@ -25,5 +25,3 @@ const playList = [
     src: "./assets/audio/yann_Tiersen_-_Ive_Never_Been_There.mp3",
   },
 ];
-
-export default playList;
