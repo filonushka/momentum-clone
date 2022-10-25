@@ -18,8 +18,8 @@ function prepareAudioPlayer() {
 
   playBtn.addEventListener("click", togglePLayBtn);
   playBtn.addEventListener("click", playAudio);
-  playPrevBtn.addEventListener("click", playPrevAudio);
-  playNextBtn.addEventListener("click", playNextAudio);
+  playPrevBtn.addEventListener("click", loadPrevAudio);
+  playNextBtn.addEventListener("click", loadNextAudio);
 
   buildPlayList();
 }
@@ -28,46 +28,42 @@ function togglePLayBtn() {
   playBtn.classList.toggle("pause");
 }
 
-function playPrevAudio() {
-  isPlay = false;
-  console.log("play prev");
+function loadPrevAudio() {
   if (audioNum > 0) {
     audioNum--;
-    playAudio();
-    console.log(audioNum);
   } else {
     audioNum = 4;
+  }
+
+  audioTitle.textContent = `${trackList[audioNum].author} - ${trackList[audioNum].song}`;
+
+  if (isPlay) {
     playAudio();
-    console.log(audioNum);
   }
 }
 
-function playNextAudio() {
-  console.log("play next");
-  isPlay = false;
+function loadNextAudio() {
   if (audioNum < 4) {
     audioNum++;
-    playAudio();
   } else {
     audioNum = 0;
+  }
+
+  audioTitle.textContent = `${trackList[audioNum].author} - ${trackList[audioNum].song}`;
+
+  if (isPlay) {
     playAudio();
-    console.log(audioNum);
   }
 }
 
 function playAudio() {
   if (!isPlay) {
     isPlay = true;
-    audioTitle.textContent = `${trackList[audioNum].author} - ${trackList[audioNum].song}`;
     audio.src = `${trackList[audioNum].src}`;
-    console.log(audioNum, audio.src);
     audio.play();
-    console.log(isPlay, "play");
   } else {
     audio.pause();
     isPlay = false;
-    audioTitle.textContent = `${trackList[audioNum].author} - ${trackList[audioNum].song}`;
-    console.log(isPlay, "pause");
   }
 }
 
