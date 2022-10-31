@@ -265,6 +265,37 @@ body {
   min-height: 20px;
 }
 
+.creator-info {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  flex-direction: column;
+}
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.link {
+  width: 35px;
+  height: 35px;
+  background-repeat: no-repeat;
+}
+
+.github_link {
+  background-image: url(./assets/svg/github.svg);
+}
+
+.linkedin_link {
+  background-image: url(./assets/svg/linkedin.svg);
+}
+
+.instagram_link {
+  background-image: url(./assets/svg/instagram.svg);
+}
+
 @media (max-width: 768px) {
   .time {
     min-height: 80px;
