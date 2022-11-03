@@ -1,3 +1,5 @@
+document.getElementsByClassName("body-loader")[0].style = "display: block";
+
 import { prepareGreeting, runClock } from "./js/clock.js";
 import { prepareAudioPlayer } from "./js/player.js";
 import { prepareWeatherWidget } from "./js/weather.js";
